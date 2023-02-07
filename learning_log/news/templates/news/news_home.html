@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Новости на сайте{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Новости на сайте</h1>
+        {% if news %}
+            {% for item in news %}
+                <div class="alert alert-warning">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.anons }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>У вам нет никаких записей!</p>
+        {% endif %}
+
+        {# Это комментарий #}
+    </div>
+{% endblock %}
