@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Topic
+from .forms import TopicForm
 
 
 def index(request):
@@ -26,3 +27,20 @@ def topic(request, topic_id):
 
 def about(request):
     return render(request, 'main/about.html')
+
+
+def new_topic(request):
+    """Определяет новую тему"""
+    if request.method != 'POST':
+        # Данные не отправились; создается пустая форма
+        form = TopicForm()
+    else:
+        # Отправлены данные POST; обработать данные
+        form = Topic(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main:topics')
+
+    # Вывести пустую или недействительную форму
+    context = {'form': form}
+    return render(request, 'main/new_topic.html', context)
