@@ -36,10 +36,10 @@ def new_topic(request):
         form = TopicForm()
     else:
         # Отправлены данные POST; обработать данные
-        form = Topic(data=request.POST)
+        form = TopicForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main:topics')
+            return redirect('topics')
 
     # Вывести пустую или недействительную форму
     context = {'form': form}
