@@ -1,19 +1,18 @@
-{% extends 'main/layout.html' %}
-
+{% extends "main/layout.html" %}
 {% block content %}
-    <div class="topic"><p>Topics</p></div>
+    <div class="topic">
+        <p>Topics</p>
+    </div>
     <ul>
-    {% for topic in topics %}
-        <div class="text-block">
-            <li>
-                <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
-            </li>
-        </div>
-    {% empty %}
-        <li>No topics have been added yet</li>
-    {% endfor %}
+        {% for topic in topics %}
+            <div class="text-block">
+                <li>
+                    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+                </li>
+            </div>
+        {% empty %}
+            <li>No topics have been added yet</li>
+        {% endfor %}
     </ul>
-
-    <a href="{% url 'new_topic' %}">Add new topic:</a>
-    
+    <a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary">Add new topic:</a>
 {% endblock content %}

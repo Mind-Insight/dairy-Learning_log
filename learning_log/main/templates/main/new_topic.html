@@ -1,11 +1,9 @@
 {% extends "main/layout.html" %}
-
 {% block content %}
-    <p>Add a new topic: </p>
-
-    <form action="{% url 'new_topic' %}" method="post">
+    <p>Add a new topic:</p>
+    <form action="{% url 'learning_logs:new_topic' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button name="submit">add topic</button>
     </form>
-{% endblock %}
+{% endblock content %}

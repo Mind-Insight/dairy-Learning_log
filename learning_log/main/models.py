@@ -8,7 +8,8 @@ class Topic(models.Model):
     date_added = models.DateTimeField(
         auto_now_add=True
     )  # DateTimeField - для хранения даты и времени
-    # auto_add_now=True - присваивание атрибуту текущую дату и время при создании новой темы
+    # auto_add_now=True - присваивание атрибуту текущую дату и
+    # время при создании новой темы
 
     def __str__(self):
         return self.text

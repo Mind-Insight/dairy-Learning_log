@@ -5,43 +5,40 @@ from django.views.generic import DetailView, UpdateView, DeleteView
 
 
 def news_home(request):
-    news = Articles.objects.order_by('title')
-    return render(request, 'news/news_home.html', {'news': news})
+    news = Articles.objects.order_by("title")
+    return render(request, "news/news_home.html", {"news": news})
 
 
 class NewsDetailView(DetailView):
     model = Articles
-    template_name = 'news/details_view.html'
-    context_object_name = 'article'
+    template_name = "news/details_view.html"
+    context_object_name = "article"
 
 
 class NewsUpdateView(UpdateView):
     model = Articles
-    template_name = 'news/create.html'
+    template_name = "news/create.html"
     form_class = ArticlesForm
 
 
 class NewsDeleteView(DeleteView):
     model = Articles
-    success_url = '/news/'
-    template_name = 'news/news_delete.html'
+    success_url = "/news/"
+    template_name = "news/news_delete.html"
 
 
 def create(request):
-    error = ''
-    if request.method == 'POST':
+    error = ""
+    if request.method == "POST":
         # в form будут находится все данные, полученные от пользователя
         form = ArticlesForm(request.POST)
         # проверка на то, что являются ли данные корректными
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect("home")
         else:
-            error = 'Неверная форма!'
+            error = "Неверная форма!"
 
     form = ArticlesForm
-    data = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'news/create.html', data)
+    data = {"form": form, "error": error}
+    return render(request, "news/create.html", data)
