@@ -7,14 +7,14 @@ def index(request):
     data = {
         "title": "Main page",
     }
-    return render(request, "main/index.html", data)
+    return render(request, "learning_logs/index.html", data)
 
 
 def show_topics(request):
     """Выводит саисок тем"""
     topics = Topic.objects.order_by("date_added")
     context = {"topics": topics}
-    return render(request, "main/topics.html", context)
+    return render(request, "learning_logs/topics.html", context)
 
 
 def topic(request, topic_id):
@@ -22,11 +22,11 @@ def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     entries = topic.entry_set.order_by("-date_added")
     context = {"topic": topic, "entries": entries}
-    return render(request, "main/topic.html", context)
+    return render(request, "learning_logs/topic.html", context)
 
 
 def about(request):
-    return render(request, "main/about.html")
+    return render(request, "learning_logs/about.html")
 
 
 def new_topic(request):
@@ -43,7 +43,7 @@ def new_topic(request):
 
     # Вывести пустую или недействительную форму
     context = {"form": form}
-    return render(request, "main/new_topic.html", context)
+    return render(request, "learning_logs/new_topic.html", context)
 
 
 def new_entry(request, topic_id):
@@ -65,7 +65,7 @@ def new_entry(request, topic_id):
         "topic": topic,
         "form": form,
     }
-    return render(request, "main/new_entry.html", context)
+    return render(request, "learning_logs/new_entry.html", context)
 
 
 def edit_entry(request, entry_id):
@@ -88,4 +88,4 @@ def edit_entry(request, entry_id):
         "topic": topic,
         "form": form,
     }
-    return render(request, "main/edit_entry.html", context)
+    return render(request, "learning_logs/edit_entry.html", context)

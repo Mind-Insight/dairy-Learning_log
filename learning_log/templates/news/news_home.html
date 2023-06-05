@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+{% extends 'base.html' %}
 
 {% block title %}Новости на сайте{% endblock %}
 
@@ -10,7 +10,7 @@
                 <div class="alert alert-warning">
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.anons }}</p>
-                    <a href="{% url 'news_detail' item.id %}" class="btn btn-warning">Show details</a>
+                    <a href="{% url 'news:news_detail' item.id %}" class="btn btn-warning">Show details</a>
                 </div>
             {% endfor %}
         {% else %}

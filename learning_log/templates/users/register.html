@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="features">
+    <h1>Регистрация</h1>
+    <form method="post" action="{% url 'users:register' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button name="submit">register</button>
+      <input type="hidden" name="next" value="{% url 'learning_logs:home' %}" />
+    </form>
+  </div>
+{% endblock content %}

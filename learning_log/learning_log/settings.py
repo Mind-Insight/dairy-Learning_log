@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     # Мои приложения
-    "main.apps.MainConfig",
+    "learning_logs.apps.LearningLogsConfig",
     "news.apps.NewsConfig",
     "users.apps.UsersConfig",
     # Приложения django по умолчанию
@@ -99,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "ru"
+LANGUAGE_CODE = "ru-RU"
 
 TIME_ZONE = "UTC"
 

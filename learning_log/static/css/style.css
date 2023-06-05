@@ -78,8 +78,9 @@ main .features p {
 }
 
 form {
-    margin-left: 35%;
-    padding-top: 10%;
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
 }
 
 .menu {

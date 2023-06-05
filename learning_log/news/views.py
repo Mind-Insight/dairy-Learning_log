@@ -35,10 +35,13 @@ def create(request):
         # проверка на то, что являются ли данные корректными
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("learning_logs:home")
         else:
             error = "Неверная форма!"
 
     form = ArticlesForm
-    data = {"form": form, "error": error}
+    data = {
+        "form": form,
+        "error": error,
+    }
     return render(request, "news/create.html", data)
