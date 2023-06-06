@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-{% block title %}
-    {{ title }}
-{% endblock title %}
-{% block content %}
-    <div class="features">
-        <h1>{{ title }}</h1>
-        <p>smth</p>
-        <button class="btn btn-warning">About page</button>
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Track your learning.</h1>
+        <p class="lead">
+            Make your own Learning Log, and keep a list of the
+            topics you're learning about. Whenever you learn something new
+            about a topic, make an entry summarizing what you've learned.
+        </p>
+        <a class="btn btn-lg btn-primary"
+           href="{% url 'users:register' %}"
+           role="button">Register</a>
     </div>
-{% endblock content %}
+{% endblock page_header %}

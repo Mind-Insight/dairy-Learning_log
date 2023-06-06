@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     "learning_logs.apps.LearningLogsConfig",
     "news.apps.NewsConfig",
     "users.apps.UsersConfig",
+    # Сторонние приложения
+    "django_bootstrap5",
     # Приложения django по умолчанию
     "django.contrib.admin",
     "django.contrib.auth",
@@ -124,4 +126,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Мои настройки
-LOGIN_URL = '/users/login/'
+LOGIN_URL = "/users/login/"
+
+# Настройки Heroku
+import django_heroku
+django_heroku.settings(locals())
