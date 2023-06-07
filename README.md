@@ -19,7 +19,7 @@ git clone https://github.com/Mind-Insight/dairy-Learning_log.git
 2. Создайте виртуальное окружение с использованием `venv`:
 
 ```bash
-cd social_network/
+cd learning_log/
 python3 -m venv venv
 ```
 
