@@ -20,7 +20,6 @@ mypy-extensions==1.0.0
 packaging==23.1
 pathspec==0.11.1
 platformdirs==3.5.1
-psycopg2-binary==2.9.6
 python-dateutil==1.5
 PyYAML==6.0
 regex==2023.6.3
